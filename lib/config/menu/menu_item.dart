@@ -17,4 +17,5 @@ const appMenuItems = <MenuItem>[
   MenuItem(title: 'Animaciones', subTitle: 'Animaciones predefinidas', route: '/animated', icon: Icons.animation),
   MenuItem(title: 'UI Controls + Tiles', subTitle: 'Controles de UI', route: '/ui-controls', icon: Icons.build_circle),
   MenuItem(title: 'Tutorial App', subTitle: 'Guía de la aplicación', route: '/tutorial', icon: Icons.school),
+  MenuItem(title: 'Infinite Scroll & Pull Refresh', subTitle: 'Listas infinitas y pull to refresh', route: '/infinite', icon: Icons.list),
 ];

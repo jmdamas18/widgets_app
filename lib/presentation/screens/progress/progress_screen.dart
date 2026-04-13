@@ -25,7 +25,7 @@ class _ProgressView extends StatelessWidget {
           const SizedBox(height: 30),
           Text('Circular Progress Indicator'),
           const SizedBox(height: 10),
-          CircularProgressIndicator(strokeWidth: 2, backgroundColor: Colors.black45),
+          CircularProgressIndicator(strokeWidth: 3, backgroundColor: Colors.black38),
 
           const SizedBox(height: 30),
           Text('Circular & Linear Progress Indicator Controlado'),
@@ -53,10 +53,10 @@ class _ControllerProgressIndicator extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircularProgressIndicator(value: progressValue, strokeWidth: 3, backgroundColor: Colors.black45),
+              CircularProgressIndicator(value: progressValue, strokeWidth: 3, backgroundColor: Colors.black38),
               const SizedBox(width: 20),
               Expanded(
-                child: LinearProgressIndicator(value: progressValue, backgroundColor: Colors.black45),
+                child: LinearProgressIndicator(value: progressValue, backgroundColor: Colors.black38),
               ),
             ],
           ),

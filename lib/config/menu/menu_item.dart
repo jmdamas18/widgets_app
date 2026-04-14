@@ -10,6 +10,7 @@ class MenuItem {
 }
 
 const appMenuItems = <MenuItem>[
+  MenuItem(title: 'Riverpod Counter Screen', subTitle: 'Contador con Riverpod', route: '/counter', icon: Icons.numbers),
   MenuItem(title: 'Botones', subTitle: 'Varios tipos de botones', route: '/buttons', icon: Icons.smart_button_outlined),
   MenuItem(title: 'Tarjetas', subTitle: 'Varios tipos de tarjetas', route: '/cards', icon: Icons.credit_card),
   MenuItem(title: 'Indicadores de Progreso', subTitle: 'Generales y controlados', route: '/progress', icon: Icons.refresh),

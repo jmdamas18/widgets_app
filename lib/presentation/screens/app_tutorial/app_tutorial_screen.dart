@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SildesInfo {
   final String title;
@@ -62,7 +63,7 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
           Positioned(
             right: 20,
             top: 50,
-            child: TextButton(child: const Text('Skip'), onPressed: () => Navigator.pop(context)),
+            child: TextButton(child: const Text('Skip'), onPressed: () => context.pop()),
           ),
 
           endReached
@@ -72,7 +73,7 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
                   child: FadeInRight(
                     from: 15,
                     delay: const Duration(milliseconds: 400),
-                    child: FilledButton(child: const Text('Comenzar'), onPressed: () => Navigator.pop(context)),
+                    child: FilledButton(child: const Text('Comenzar'), onPressed: () => context.pop()),
                   ),
                 )
               : const SizedBox.shrink(),

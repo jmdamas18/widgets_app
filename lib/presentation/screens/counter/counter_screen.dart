@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:widgets_app/presentation/providers/counter_provider.dart';
+import 'package:widgets_app/presentation/providers/theme_provider.dart';
 
 class CounterScreen extends ConsumerWidget {
   static const name = 'counter_screen';
@@ -10,16 +11,45 @@ class CounterScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final titleStyle = Theme.of(context).textTheme.titleLarge;
-    final clickCounter = ref.watch(counterProvider);
+    final int clickCounter = ref.watch(counterProvider);
+    final bool isDarkMode = ref.watch(themeProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Riverpod Counter Screen')),
+      appBar: AppBar(
+        title: const Text('Riverpod Counter Screen'),
+        actions: [IconButton(icon: Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode), onPressed: () => ref.read(themeProvider.notifier).toggle())],
+      ),
       body: Center(child: Text('Valor: $clickCounter', style: titleStyle)),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          ref.read(counterProvider.notifier).increment();
-        },
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FloatingActionButton(
+            child: const Icon(Icons.refresh),
+            onPressed: () {
+              ref.read(counterProvider.notifier).reset();
+            },
+          ),
+
+          const SizedBox(height: 10),
+
+          FloatingActionButton(
+            child: const Icon(Icons.add),
+            onPressed: () {
+              ref.read(counterProvider.notifier).increment();
+            },
+          ),
+
+          const SizedBox(height: 10),
+
+          FloatingActionButton(
+            child: const Icon(Icons.remove),
+            onPressed: () {
+              if (clickCounter == 0) return;
+
+              ref.read(counterProvider.notifier).decrement();
+            },
+          ),
+        ],
       ),
     );
   }

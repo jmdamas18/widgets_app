@@ -24,6 +24,7 @@ class CounterScreen extends ConsumerWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           FloatingActionButton(
+            heroTag: 'btn-reset',
             child: const Icon(Icons.refresh),
             onPressed: () {
               ref.read(counterProvider.notifier).reset();
@@ -33,6 +34,7 @@ class CounterScreen extends ConsumerWidget {
           const SizedBox(height: 10),
 
           FloatingActionButton(
+            heroTag: 'btn-increment',
             child: const Icon(Icons.add),
             onPressed: () {
               ref.read(counterProvider.notifier).increment();
@@ -42,6 +44,7 @@ class CounterScreen extends ConsumerWidget {
           const SizedBox(height: 10),
 
           FloatingActionButton(
+            heroTag: 'btn-decrement',
             child: const Icon(Icons.remove),
             onPressed: () {
               if (clickCounter == 0) return;

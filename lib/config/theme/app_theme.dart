@@ -4,8 +4,10 @@ const colorList = <Color>[Colors.blue, Colors.teal, Colors.red, Colors.green, Co
 
 class AppTheme {
   final int selectColor;
+  final bool isDarkMode;
 
-  AppTheme({this.selectColor = 0}) : assert(selectColor >= 0 && selectColor < colorList.length, 'SelectColor must be between 0 and ${colorList.length - 1}');
+  AppTheme({this.selectColor = 0, this.isDarkMode = false}) : assert(selectColor >= 0 && selectColor < colorList.length, 'SelectColor must be between 0 and ${colorList.length - 1}');
 
-  ThemeData getTheme() => ThemeData(useMaterial3: true, colorSchemeSeed: colorList[selectColor], appBarTheme: AppBarTheme(centerTitle: false));
+  ThemeData getTheme() =>
+      ThemeData(useMaterial3: true, colorSchemeSeed: colorList[selectColor], brightness: isDarkMode ? Brightness.dark : Brightness.light, appBarTheme: AppBarTheme(centerTitle: false));
 }

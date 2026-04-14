@@ -12,12 +12,13 @@ class CounterScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final titleStyle = Theme.of(context).textTheme.titleLarge;
     final int clickCounter = ref.watch(counterProvider);
-    final bool isDarkMode = ref.watch(themeProvider);
+    // final bool isDarkMode = ref.watch(darkNotifierProvider);
+    final bool isDarkMode = ref.watch(themeNotifierProvider).isDarkMode;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Riverpod Counter Screen'),
-        actions: [IconButton(icon: Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode), onPressed: () => ref.read(themeProvider.notifier).toggle())],
+        actions: [IconButton(icon: Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode), onPressed: () => ref.read(themeNotifierProvider.notifier).toggleDarkMode())],
       ),
       body: Center(child: Text('Valor: $clickCounter', style: titleStyle)),
       floatingActionButton: Column(
